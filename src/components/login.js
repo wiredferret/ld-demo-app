@@ -45,7 +45,7 @@ export default function Login() {
   return (
     <div className="">
       <Toasts />
-      <div className={`bg-ldgray p-4 px-7 xl:px-14 shadow-2xl`}>
+      <div className={`bg-ldgray p-4 px-7 2xl:px-14 shadow-2xl`}>
         <div className="pb-4 text-2xl">Submit a User Below</div>
         <form>
           <div className="flex items-center bg-white overflow-hidden px-2 py-1 justify-between">

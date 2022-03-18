@@ -29,7 +29,7 @@ function App() {
     <header className="App-header grid row-start-1 xl:row-start-2 xl:col-start-2 xl:col-span-3">
       <Header />
     </header>
-    <div className="body grid xl:row-start-3 xl:col-start-2 xl:col-span-3 invisible xl:visible">
+    <div className="body grid xl:row-start-3 xl:col-start-2 xl:col-span-3 invisible xl:visible place-items-center">
     <Cards />
     </div>
   </div>
