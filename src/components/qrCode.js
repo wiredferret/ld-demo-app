@@ -1,9 +1,10 @@
 import QRCode from "react-qr-code";
+
 // import { withLDConsumer } from "launchdarkly-react-client-sdk";
 
 //Change QRURL to the URL where you'll be hosting this app
 // const QRURL = "https://codyde.github.io/ld-demo-app/";
-const QRURL = "https://blissful-newton-55d6e9.netlify.app/"
+const QRURL = "https://cody-ld-demo.netlify.app/"
 
 const qrCodeHome = () => {  
   return (

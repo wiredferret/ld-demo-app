@@ -1,5 +1,11 @@
+import { useFlags } from "launchdarkly-react-client-sdk";
+
+
 export default function Cards() {
-return (
+
+const { cardshow } = useFlags()
+
+return cardshow ? (
 <div className="grid h-1/2 grid-cols-4 place-items-center">
             <div className="grid grid-cols-4 col-span-4 space-x-4">
           <div className={`text-ldyellow shadow-2xl bg-ldgray py-5`}>
@@ -28,5 +34,5 @@ return (
           </div>
           </div>
         </div>
-)
+):(<div />)
 }
