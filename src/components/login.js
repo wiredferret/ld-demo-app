@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useLDClient } from "launchdarkly-react-client-sdk";
 import Toasts from "./toaster";
@@ -27,9 +27,9 @@ export default function Login() {
     return obj
   }
 
-  const user = {
-    key: userState.username,
-  };
+  // const user = {
+  //   key: userState.username,
+  // };
 
   const submitUser = async (e) => {
     e.preventDefault();

@@ -19,7 +19,8 @@ let id = getUserId();
         operatingSystem: osName,
       },
     },
-  });
+  }
+  );
 
 ReactDOM.render(
   <LDProvider>

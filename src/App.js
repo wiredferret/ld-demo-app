@@ -2,7 +2,7 @@ import QRCode from "./components/qrCode";
 import ldlogo from "./ld-light.png";
 import toggle from "./toggle_thumbsup.png";
 import "./App.css";
-import { useFlags, useLDClient } from "launchdarkly-react-client-sdk";
+import { useFlags } from "launchdarkly-react-client-sdk";
 import Header from "./components/header";
 import Login from "./components/login";
 import Cards from "./components/cards";
