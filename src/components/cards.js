@@ -1,5 +1,3 @@
-import { useFlags } from "launchdarkly-react-client-sdk";
-
 export default function Cards() {
   return (
     <div className="grid h-1/2 grid-cols-4 place-items-center">
