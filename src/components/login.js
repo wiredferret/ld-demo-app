@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useLDClient } from "launchdarkly-react-client-sdk";
 import Toasts from "./toaster";
@@ -10,15 +10,34 @@ export default function Login() {
     username: "",
   });
 
+  // useEffect(() =>{
+  //   async function setCurrLDUser() {
+      
+  //     const obj = await LDClient.getUser()
+  //     console.log(obj)
+  //     return obj
+  //   }
+  //   const lduser = setCurrLDUser()
+  // },[]
+  // )
+
+  async function setCurrLDUser() {
+    const obj = await LDClient.getUser()
+    console.log(obj)
+    return obj
+  }
+
   const user = {
     key: userState.username,
   };
 
   const submitUser = async (e) => {
     e.preventDefault();
-    await LDClient.identify(user);
-    await console.log(LDClient.getUser());
+    const lduser = await setCurrLDUser()
+    lduser.key = userState.username
+    await LDClient.identify(lduser)
     toast.success("Your LaunchDarkly user is " + userState.username);
+    await console.log("The updated user is: "+setCurrLDUser())
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
@@ -26,7 +45,9 @@ export default function Login() {
 
   const clearUser = async (e) => {
     e.preventDefault();
-    await LDClient.identify({key: "anonymous"});
+    const lduser = await setCurrLDUser()
+    lduser.key = "anonymous"
+    await LDClient.identify(lduser);
     await console.log(LDClient.getUser());
     toast.success("User has been cleared");
     Array.from(document.querySelectorAll("input")).forEach(
