@@ -12,17 +12,20 @@ function App() {
 
   return (
     <div className="App h-screen bg-ldls grid xl:grid-cols-4 grid-rows-3 bg-cover bg-no-repeat">
+      <header className="App-header grid row-start-1 xl:row-start-2 xl:col-start-2 xl:col-span-3">
+        <Header />
+      </header>
       <div className="body grid row-start-3 xl:col-start-1 xl:row-start-2 bg-black-4 place-items-center">
-      {qrcode ?
-        <div>
-        <QRCode /> 
-        </div>
-        : null}
-       {login ?  
-        <div>
-        <Login />
-        </div>
-        : null}
+        {qrcode ? (
+          <div>
+            <QRCode />
+          </div>
+        ) : null}
+        {login ? (
+          <div>
+            <Login />
+          </div>
+        ) : null}
       </div>
       {upperimage ? (
         <div className="body grid row-start-2 xl:row-start-1 xl:col-start-3 place-items-center">
@@ -45,15 +48,13 @@ function App() {
       ) : (
         <div />
       )}
-      <header className="App-header grid row-start-1 xl:row-start-2 xl:col-start-2 xl:col-span-3">
-        <Header />
-      </header>
-      { cardshow ?
-      <div className="invisible xl:visible">
-      <div className="body grid xl:row-start-3 xl:col-start-2 xl:col-span-3 place-items-center">
-        <Cards />
-      </div>
-      </div> : <div />}
+      {cardshow ? (
+          <div className="body grid xl:row-start-3 xl:col-start-2 xl:col-span-3 invisible xl:visible place-items-center">
+            <Cards />
+          </div>
+      ) : (
+        null
+      )}
     </div>
   );
 }
