@@ -10,34 +10,19 @@ export default function Login() {
     username: "",
   });
 
-  // useEffect(() =>{
-  //   async function setCurrLDUser() {
-      
-  //     const obj = await LDClient.getUser()
-  //     console.log(obj)
-  //     return obj
-  //   }
-  //   const lduser = setCurrLDUser()
-  // },[]
-  // )
-
   async function setCurrLDUser() {
-    const obj = await LDClient.getUser()
-    console.log(obj)
-    return obj
+    const obj = await LDClient.getUser();
+    console.log(obj);
+    return obj;
   }
-
-  // const user = {
-  //   key: userState.username,
-  // };
 
   const submitUser = async (e) => {
     e.preventDefault();
-    const lduser = await setCurrLDUser()
-    lduser.key = userState.username
-    await LDClient.identify(lduser)
+    const lduser = await setCurrLDUser();
+    lduser.key = userState.username;
+    await LDClient.identify(lduser);
     toast.success("Your LaunchDarkly user is " + userState.username);
-    await console.log("The updated user is: "+setCurrLDUser())
+    await console.log("The updated user is: " + setCurrLDUser());
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
@@ -45,8 +30,8 @@ export default function Login() {
 
   const clearUser = async (e) => {
     e.preventDefault();
-    const lduser = await setCurrLDUser()
-    lduser.key = "anonymous"
+    const lduser = await setCurrLDUser();
+    lduser.key = "anonymous";
     await LDClient.identify(lduser);
     await console.log(LDClient.getUser());
     toast.success("User has been cleared");
@@ -62,7 +47,7 @@ export default function Login() {
       [id]: value,
     }));
   };
-  
+
   return (
     <div className="">
       <Toasts />
@@ -89,12 +74,12 @@ export default function Login() {
             </div>
           </div>
           <button
-                type="submit"
-                className="bg-ldred text-white text-base px-4 py-2 "
-                onClick={clearUser.bind()}
-              >
-                Clear User
-              </button>
+            type="submit"
+            className="bg-ldred text-white text-base px-4 py-2 "
+            onClick={clearUser.bind()}
+          >
+            Clear User
+          </button>
         </form>
       </div>
     </div>
