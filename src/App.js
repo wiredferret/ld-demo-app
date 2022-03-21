@@ -62,7 +62,7 @@ function App() {
       )}
       {cardshow ? (
           <div className="body grid xl:row-start-3 xl:col-start-2 xl:col-span-3 invisible xl:visible place-items-center">
-            <Cards textcolor={color} />
+            <Cards textcolor={textcolor} />
           </div>
       ) : (
         null
