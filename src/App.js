@@ -9,11 +9,11 @@ import Cards from "./components/cards";
 import Intro from "./components/intro";
 
 function App() {
-  const { qrcode, upperimage, logoversion, cardshow, login, intro } = useFlags();
+  const { qrcode, upperimage, logoversion, cardshow, login } = useFlags();
 
   return (
     <div className="App h-screen bg-ldls grid xl:grid-cols-4 grid-rows-3 bg-cover bg-no-repeat">
-      {/* { intro ? ( */}
+      {/* { prodheader ? ( */}
       <header className="App-header grid col-start-1 col-span-4 row-start-2">
         <Intro />
       </header>
