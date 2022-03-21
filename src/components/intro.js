@@ -17,7 +17,7 @@ return (
             Deploy
           </h1>
         </div>
-        <div className={`App-fade text-black shadow-2xl bg-ldgray border-ldpurple border-2  px-8 py-5`}>
+        <div className={`App-fade text-white shadow-2xl bg-ldgray border-ldpurple border-2  px-8 py-5`}>
           <h1 className="text-5xl sm:text-base xl:text-3xl 2xl:text-4xl my-5">
             Consume
           </h1>
