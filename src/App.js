@@ -9,7 +9,7 @@ import Cards from "./components/cards";
 import Intro from "./components/intro";
 
 function App() {
-  const { qrcode, upperimage, logoversion, cardshow, login, prodHeader } = useFlags();
+  const { qrcode, upperimage, logoversion, cardshow, login, prodHeader, textcolor } = useFlags();
 
   return (
     <div className="App h-screen bg-ldls grid xl:grid-cols-4 grid-rows-3 bg-cover bg-no-repeat">
@@ -62,7 +62,7 @@ function App() {
       )}
       {cardshow ? (
           <div className="body grid xl:row-start-3 xl:col-start-2 xl:col-span-3 invisible xl:visible place-items-center">
-            <Cards />
+            <Cards textcolor={color} />
           </div>
       ) : (
         null
