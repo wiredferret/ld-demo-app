@@ -12,7 +12,6 @@ export default function Login() {
 
   async function setCurrLDUser() {
     const obj = await LDClient.getUser();
-    console.log(obj);
     return obj;
   }
 
@@ -21,8 +20,9 @@ export default function Login() {
     const lduser = await setCurrLDUser();
     lduser.key = userState.username;
     await LDClient.identify(lduser);
+    LDClient.track('userLogin', { customProperty: userState.username });
     toast.success("Your LaunchDarkly user is " + userState.username);
-    await console.log("The updated user is: " + setCurrLDUser());
+    console.log("The updated user is: " + lduser.key);
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
@@ -33,6 +33,7 @@ export default function Login() {
     const lduser = await setCurrLDUser();
     lduser.key = "anonymous";
     await LDClient.identify(lduser);
+    LDClient.track('userClear', { customProperty: userState.username });
     await console.log(LDClient.getUser());
     toast.success("User has been cleared");
     Array.from(document.querySelectorAll("input")).forEach(
@@ -66,6 +67,7 @@ export default function Login() {
             <div className="flex items-center px-2 space-x-4 mx-auto submission">
               <button
                 type="submit"
+                id="submission"
                 className="bg-ldblue text-white text-base px-4 py-2 "
                 onClick={submitUser.bind(userState)}
               >
@@ -75,6 +77,7 @@ export default function Login() {
           </div>
           <button
             type="submit"
+            id="clear"
             className="bg-ldred text-white text-base px-4 py-2 "
             onClick={clearUser.bind()}
           >
