@@ -46,6 +46,10 @@
   animation: pulse 1s linear infinite;
 }
 
+.App-fade {
+  animation: pulse 1s linear;
+}
+
 .qr-wrapper {
   size: "128"
 }
@@ -56,11 +60,11 @@
  transform: scale(0.7);
 }
 50% {
--webkit-transform: scale(0.9);
-transform: scale(0.9);
+-webkit-transform: scale(0.8);
+transform: scale(0.8);
 }
 100% {
- -webkit-transform: scale(0.7);
-transform: scale(0.7);
+ -webkit-transform: scale(1);
+transform: scale(1);
 }
 }
