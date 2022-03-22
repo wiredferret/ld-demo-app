@@ -1,8 +1,7 @@
-export default function Intro (flag) {
-  console.log(flag.release)
+export default function Release () {
 return (
     <div className="grid h-1/2 grid-cols-4 place-items-center">
-      <div className="grid grid-cols-4 col-span-4 space-x-4">
+      <div className="grid grid-cols-5 col-span-5 space-x-4">
         <div className={`App-fade text-white shadow-2xl bg-ldgray  px-8 py-5`}>
           <p className="text-base xl:text-3xl 2xl:text-4xl my-5 place-items-center">
             Build
@@ -18,14 +17,11 @@ return (
             Deploy
           </p>
         </div>
-        { flag.release ? (
         <div className={`App-fade text-white shadow-2xl bg-ldgray border-ldpurple border-4  px-8 py-5`}>
           <p className="text-base xl:text-3xl 2xl:text-4xl my-5 place-items-center">
             Release
           </p>
         </div>
-         ):(null)
-        }
         <div className={`App-fade text-white shadow-2xl bg-ldgray  px-8 py-5`}>
           <p className="text-base xl:text-3xl 2xl:text-4xl my-5 place-items-center">
             Consume

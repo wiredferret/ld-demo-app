@@ -2,15 +2,15 @@ import QRCode from "./components/qrCode";
 import ldlogo from "./ld-light.png";
 import toggle from "./toggle_thumbsup.png";
 import "./App.css";
-import { useFlags, useLDClient } from "launchdarkly-react-client-sdk";
+import { useFlags } from "launchdarkly-react-client-sdk";
 import Header from "./components/header";
 import Login from "./components/login";
-import Cards from "./components/cards";
 import Intro from "./components/intro";
+import Release from "./components/release";
 
 function App() {
-  const { qrcode, upperimage, logoversion, cardshow, login, prodHeader, textcolor } = useFlags();
-
+  const { qrcode, upperimage, logoversion, cardshow, login, prodHeader, release } = useFlags();
+  
   return (
     <div className="App h-screen bg-ldls grid xl:grid-cols-4 grid-rows-3 bg-cover bg-no-repeat">
       { prodHeader ? (
@@ -21,9 +21,9 @@ function App() {
       (
         <header className="App-header grid col-start-1 col-span-4 row-start-2">
         <div className="body bg-ldgray px-8 py-4 mb-5 w-full shadow-2xl">
-          <p className="text-sm xl:text-4xl">The common <span className="text-ldyellow">Application Delivery</span> flow...</p>
+          <p className="text-m xl:text-4xl">The common <span className="text-ldyellow">Application Delivery</span> flow...</p>
         </div>
-        <Intro />
+        <Intro release={release} />
       </header>
         )
       }
@@ -62,7 +62,7 @@ function App() {
       )}
       {cardshow ? (
           <div className="body grid xl:row-start-3 xl:col-start-2 xl:col-span-3 invisible xl:visible place-items-center">
-            <Cards textcolor={textcolor} />
+            <Release />
           </div>
       ) : (
         null
