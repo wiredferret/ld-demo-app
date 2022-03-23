@@ -12,9 +12,9 @@ function App() {
   const { qrcode, upperimage, logoversion, cardshow, login, prodHeader, release } = useFlags();
   
   return (
-    <div className="App h-screen bg-ldls grid xl:grid-cols-4 grid-rows-3 bg-cover bg-no-repeat">
+    <div className="App h-screen bg-ldls grid xl:grid-cols-4 grid-cols-3 grid-rows-4 xl:grid-rows-3 bg-cover bg-no-repeat">
       { prodHeader ? (
-        <header className="App-header grid row-start-1 xl:row-start-2 xl:col-start-2 xl:col-span-3">
+        <header className="App-header grid row-start-1 xl:row-start-2 xl:col-start-2 col-span-3">
           <Header />
         </header>
       ):
@@ -27,20 +27,19 @@ function App() {
       </header>
         )
       }
-      <div className="body grid row-start-3 xl:col-start-1 xl:row-start-2 bg-black-4 place-items-center">
-        {qrcode ? (
-          <div>
-            <QRCode />
-          </div>
-        ) : null}
-        {login ? (
-          <div>
-            <Login />
-          </div>
-        ) : null}
-      </div>
+      {qrcode ? (
+        <div className="body grid row-start-3 xl:col-start-1 xl:row-start-1 bg-black-4 place-items-center">
+            <QRCode /> 
+        </div>
+      ) : null}
+      {/* body grid col-span-3 row-start-3 xl:col-start-1 xl:row-start-2 bg-black-4 place-items-center */}
+      {login ? (
+        <div className="body grid col-span-3 row-start-3 xl:col-span-1 xl:col-start-1 xl:row-start-2 bg-black-4 place-items-center">
+          <Login />
+        </div>
+      ) : null}
       {upperimage ? (
-        <div className="body grid row-start-2 xl:row-start-1 xl:col-start-3 place-items-center">
+        <div className="body grid row-start-2 xl:col-start-2 col-span-3 xl:row-start-1 place-items-center">
           {logoversion ? (
             <img
               src={toggle}
@@ -61,7 +60,7 @@ function App() {
         <div />
       )}
       {cardshow ? (
-          <div className="body grid xl:row-start-3 xl:col-start-2 xl:col-span-3 invisible xl:visible place-items-center">
+          <div className="body grid col-span-3 row-start-4 xl:row-start-3 xl:col-start-2 xl:col-span-3 place-items-center">
             <Release />
           </div>
       ) : (
