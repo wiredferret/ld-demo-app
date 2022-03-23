@@ -28,18 +28,17 @@ function App() {
         )
       }
       {qrcode ? (
-        <div className="body grid row-start-3 xl:col-start-1 xl:row-start-1 bg-black-4 place-items-center">
+        <div className="body grid row-start-2 col-span-3 xl:col-span-1 xl:col-start-1 xl:row-start-1 bg-black-4 place-items-center">
             <QRCode /> 
         </div>
       ) : null}
-      {/* body grid col-span-3 row-start-3 xl:col-start-1 xl:row-start-2 bg-black-4 place-items-center */}
       {login ? (
         <div className="body grid col-span-3 row-start-3 xl:col-span-1 xl:col-start-1 xl:row-start-2 bg-black-4 place-items-center">
           <Login />
         </div>
       ) : null}
       {upperimage ? (
-        <div className="body grid row-start-2 xl:col-start-2 col-span-3 xl:row-start-1 place-items-center">
+        <div className="body grid row-start-2 col-span-3 xl:col-start-2  xl:row-start-1 place-items-center">
           {logoversion ? (
             <img
               src={toggle}

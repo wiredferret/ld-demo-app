@@ -5,9 +5,9 @@ const QRURL = "https://cody-ld-demo.netlify.app/"
 
 const qrCodeHome = () => {  
   return (
-    <div className="mx-auto pb-4 px-3 my-4 lg:px-7 shadow-2xl">
-      <div className="mt-4 qr-wrapper">
-        <QRCode size="225" value={QRURL} />
+    <div className="mx-auto shadow-2xl">
+      <div className="qr-wrapper">
+        <QRCode size="200" value={QRURL} />
       </div>
     </div>
   )     
