@@ -15,8 +15,8 @@ provider "launchdarkly" {
 }
 
 resource "launchdarkly_project" "terraform" {
-  key  = "ld-demo"
-  name = "ld-demo"
+  key  = "cody-ld-demo-tf"
+  name = "cody-ld-demo-tf"
 
   tags = [
     "terraform",
@@ -34,22 +34,22 @@ resource "launchdarkly_project" "terraform" {
   }
 }
 
-resource "launchdarkly_feature_flag" "reduceimage" {
+resource "launchdarkly_feature_flag" "qrcode" {
   project_key = launchdarkly_project.terraform.key
-  key         = "reduceimage"
-  name        = "reduceimage"
-  description = "This flag changes the size of the image on our page"
+  key         = "qrcode"
+  name        = "QR Code"
+  description = "This flag enables the view of the QR Code on our application canvas for mobile device viewing"
 
   variation_type = "boolean"
   variations {
     value       = "true"
-    name        = "Small"
-    description = "Reduce the size of the image"
+    name        = "QR Code On"
+    description = "Show the QR Code"
   }
   variations {
     value       = "false"
-    name        = "Normal"
-    description = "Standard image size"
+    name        = "QR Code Off"
+    description = "Disable the QR Code for mobile device viewing "
   }
   
   defaults {
@@ -58,26 +58,26 @@ resource "launchdarkly_feature_flag" "reduceimage" {
   }
 
   tags = [
-    "terraform"
+    "terraform-managed"
   ]
 }
 
-resource "launchdarkly_feature_flag" "userLogin" {
+resource "launchdarkly_feature_flag" "logoversion" {
   project_key = launchdarkly_project.terraform.key
-  key         = "userLogin"
-  name        = "userLogin"
-  description = "This flag presents the userLogin input box"
+  key         = "logoversion"
+  name        = "Logo Version"
+  description = "This flag controls which logo is visible within the application"
 
   variation_type = "boolean"
   variations {
     value       = "true"
-    name        = "Enabled"
-    description = "Display the user login box"
+    name        = "Show Toggle Logo"
+    description = "Toggle makes their grand appearance!"
   }
   variations {
     value       = "false"
-    name        = "Disabled"
-    description = "No user login box"
+    name        = "Default LaunchDarkly Logo"
+    description = "Shows the default LaunchDarkly Osmo logo"
   }
   
   defaults {
@@ -86,26 +86,26 @@ resource "launchdarkly_feature_flag" "userLogin" {
   }
 
   tags = [
-    "terraform",   
+    "terraform-managed",   
   ]
 }
 
-resource "launchdarkly_feature_flag" "brandImage" {
+resource "launchdarkly_feature_flag" "cardshow" {
   project_key = launchdarkly_project.terraform.key
-  key         = "brandImage"
-  name        = "brandImage"
-  description = "This controls the brand image thats deployed"
+  key         = "cardshow"
+  name        = "Release Cards"
+  description = "This flag controls the visibility of the release cards on the bottom of the UI "
 
   variation_type = "boolean"
   variations {
     value       = "true"
-    name        = "New Logo"
-    description = "Present the new brand logo"
+    name        = "Show Release Cards"
+    description = "Show the app delivery release cards"
   }
   variations {
     value       = "false"
-    name        = "Rocket Logo"
-    description = "Present the previous logo"
+    name        = "Disable Card Views"
+    description = "Do not show the release cards "
   }
   
   defaults {
@@ -114,26 +114,26 @@ resource "launchdarkly_feature_flag" "brandImage" {
   }
 
   tags = [
-    "terraform",   
+    "terraform-managed",   
   ]
 }
 
-resource "launchdarkly_feature_flag" "cards" {
+resource "launchdarkly_feature_flag" "upperimage" {
   project_key = launchdarkly_project.terraform.key
-  key         = "cards"
-  name        = "cards"
-  description = "Show the value proposition cards"
+  key         = "upperimage"
+  name        = "Upper Image"
+  description = "Show the upper immage on page"
 
   variation_type = "boolean"
   variations {
     value       = "true"
-    name        = "Cards Enabled"
-    description = "Display the cards"
+    name        = "Show Image"
+    description = "Display the image"
   }
   variations {
     value       = "false"
-    name        = "Cards Hidden"
-    description = "Hide the cards"
+    name        = "Disable Image"
+    description = "Disable the image from being viewed "
   }
   
   defaults {
@@ -142,26 +142,26 @@ resource "launchdarkly_feature_flag" "cards" {
   }
 
   tags = [
-    "terraform",   
+    "terraform-managed",   
   ]
 }
 
-resource "launchdarkly_feature_flag" "userbuttons" {
+resource "launchdarkly_feature_flag" "login" {
   project_key = launchdarkly_project.terraform.key
-  key         = "userbuttons"
-  name        = "userbuttons"
-  description = "Show the Get User and Clear Login buttons"
+  key         = "login"
+  name        = "Login UI"
+  description = "Show the login box for user targeting"
 
   variation_type = "boolean"
   variations {
     value       = "true"
-    name        = "Buttons enabled"
-    description = "Display the buttons"
+    name        = "Login enabled"
+    description = "Login box presented"
   }
   variations {
     value       = "false"
-    name        = "Butons hidden"
-    description = "Hide the buttons"
+    name        = "Login Disabled"
+    description = "Not able to login "
   }
   
   defaults {
@@ -170,26 +170,26 @@ resource "launchdarkly_feature_flag" "userbuttons" {
   }
 
   tags = [
-    "terraform",   
+    "terraform-managed",   
   ]
 }
 
-resource "launchdarkly_feature_flag" "intro" {
+resource "launchdarkly_feature_flag" "prodHeader" {
   project_key = launchdarkly_project.terraform.key
-  key         = "intro"
-  name        = "intro"
-  description = "Dramatic intro text"
+  key         = "prodHeader"
+  name        = "Production Header"
+  description = "Enables the production header view in the UI"
 
   variation_type = "boolean"
   variations {
     value       = "true"
-    name        = "Show the drama"
-    description = "Display the intro text"
+    name        = "Show New Header Design"
+    description = "Show the updated LaunchDarkly header"
   }
   variations {
     value       = "false"
-    name        = "Normal"
-    description = "Show normal text"
+    name        = "Show Old Header Design"
+    description = "Displays header showing common app delivery "
   }
   
   defaults {
@@ -198,6 +198,6 @@ resource "launchdarkly_feature_flag" "intro" {
   }
 
   tags = [
-    "terraform",   
+    "terraform-managed",   
   ]
 }
