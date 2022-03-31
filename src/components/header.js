@@ -1,7 +1,7 @@
 import ld from '../ld-white-wide.png'
 
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div className='grid  w-full bg-ldgray shadow-2xl place-items-center'>
     <div className="mx-auto xl:w-full p-4 lg:p-4 px-7 lg:px-28">
