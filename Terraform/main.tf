@@ -100,7 +100,7 @@ resource "launchdarkly_feature_flag" "cardshow" {
   variations {
     value       = "true"
     name        = "Show Release Cards"
-    description = "Show the app delivery release cards"
+    description = "Show the **app delivery** release cards"
   }
   variations {
     value       = "false"
